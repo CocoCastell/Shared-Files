@@ -1,0 +1,36 @@
+set number                  " Affiche les numéros de ligne
+syntax on                   " Active la coloration syntaxique
+set termguicolors           " Active le support des couleurs 24 bits
+set background=dark         " Définit le fond comme sombre
+set scrolloff=8            " Gardez 8 lignes visibles autour du curseur
+set guicursor=a:block      " Curseur en bloc en mode normal
+set guicursor+=n-v-c:block " Curseur en bloc en mode normal, visuel, et commande
+colorscheme industry       " Remplacez par le schéma que vous préférez
+set lazyredraw             " Évite de redessiner l'écran lors de l'exécution de macros
+set mouse=r
+set hlsearch               " Met en surbrillance les résultats de recherche
+set incsearch              " Affiche les résultats de recherche au fur et à mesure que vous tapez
+" Fermer automatiquement les parenthèses, accolades et crochets
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+
+call plug#begin('~/.vim/plugged')
+
+" Liste des plugins ici
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+let g:coc_disable_startup_warning = 1
+
+" Ajustements de couleurs manuels si nécessaire
+highlight Normal ctermfg=white ctermbg=black
+highlight Comment ctermfg=black
+highlight Statement ctermfg=blue
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set smarttab
+set autoindent
